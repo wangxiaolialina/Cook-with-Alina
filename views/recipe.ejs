@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include partials/header %>
+    </header>
+
+    <main>
+        <div><% recipeList.forEach(recipe => { %>
+            <div>recipe.name</div>
+            <div>
+                Ingredients:
+                <ul>
+                    <% recipe.ingredients.forEach(ing => { %>
+                    <li><%= ing %></li>
+                    <% }) %>
+                </ul>
+            </div>
+            <img src="<%= recipe.img %>" />
+            <div>Recipe Link: <a href="<%= recipe.url %>"></div>
+
+            <% }) %>
+        </div>
+    </main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+
+</body>
+
+</html>
