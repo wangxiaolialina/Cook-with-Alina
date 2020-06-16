@@ -1,11 +1,35 @@
+<!-- views/pages/index.ejs -->
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+    <% include partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include partials/header %>
+</header>
+
+<main>
+  <div class="active-cyan-3 active-cyan-4 mb-4">
+    <form action="/recipe" method="GET">
+    <input class="form-control" type="text" name="recipeName" placeholder="Search your recipe" aria-label="Search">
+    <span class="input-group-btn">
+      <button class="btn btn-success"
+        type="submit">Go!</button>
+    </span>
+  </form>
+  </div>
+  OR
+  <a href='./category'>
+    <button type="button" class="btn btn-info">Explore By Category</button>
+  </a>
+</main>
+
+<footer>
+    <% include partials/footer %>
+</footer>
+
+</body>
 </html>
