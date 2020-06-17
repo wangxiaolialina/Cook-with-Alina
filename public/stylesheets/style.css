@@ -6,3 +6,32 @@ body {
 a {
   color: #00B7FF;
 }
+
+.title {
+  font-weight: bold;
+  margin:20px;
+  font-family: cursive;
+  font-size:2vw;
+  color:#7f9ea9;
+  text-decoration-style: none;
+}
+.recipe {
+  display: flex;
+  display: inline;
+}
+
+ul{
+  color:black;
+}
+
+.imgrecipe {
+  width: 400px;
+  height: 350px;
+}
+
+.line{
+  font-size: .85em;
+  margin: 1em;
+  border-bottom: 1px solid #d7d9db;
+  padding-bottom: .75em;
+}

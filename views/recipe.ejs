@@ -13,18 +13,22 @@
 
     <main>
         <div><% recipeList.forEach(recipe => { %>
-            <div>recipe.name</div>
-            <div>
-                Ingredients:
-                <ul>
-                    <% recipe.ingredients.forEach(ing => { %>
-                    <li><%= ing %></li>
-                    <% }) %>
-                </ul>
+            <div class="recipe">
+                <div class="title"><%=recipe.name %></div>
+                <img class="imgrecipe" src="<%= recipe.img %>" />
+                <div class="title">
+                    Ingredients:
+                </div>
+                <div>
+                    <ul>
+                        <% recipe.ingredients.forEach(ing => { %>
+                        <li><%= ing %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+                <div> <a href="<%= recipe.url %>">Read More</div>
+                    <p class='line'></p>
             </div>
-            <img src="<%= recipe.img %>" />
-            <div>Recipe Link: <a href="<%= recipe.url %>"></div>
-
             <% }) %>
         </div>
     </main>
