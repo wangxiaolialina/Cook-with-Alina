@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include partials/header %>
+</header>
+
+<main>
+    <div class="category_grid">
+        <% categories.forEach(cat => { %>
+          <div class="category">
+            <a href="./category/<%= cat.name %>">
+              <img src="./images/<%= cat.img %>" >
+              <p><%= cat.name %></p>
+            </a>
+          </div>
+        <%}) %>
+      </div>
+  
+</main>
+
+<footer>
+    <% include partials/footer %>
+</footer>
+
+</body>
+</html>

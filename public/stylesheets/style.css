@@ -7,6 +7,18 @@ a {
   color: #00B7FF;
 }
 
+.category_grid {
+  width: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.category img {
+  width: 350px;
+  height: 350px;
+}
+
 .title {
   font-weight: bold;
   margin:20px;
