@@ -5,7 +5,8 @@ const base_url = "https://api.edamam.com/search";
 require('dotenv').config();
 
 module.exports = {
-    searchRecipe
+    searchRecipe,
+    getRecipeByName,
 }
 
 const app_id = process.env.APP_ID;
@@ -33,4 +34,25 @@ async function searchRecipe(req, res ) {
     }  catch (error) {
         res.sendStatus(500)
     }
+}
+
+function getRecipeByName(req, res) {
+    const recipe_name = req.params.name;
+    axios.get(base_url, {
+        params: {
+            app_id: app_id,
+            app_key: app_key,
+            q: recipe_name,
+        }
+    })
+        .then((response) => {
+           if (response && response.data.hits.length > 0) {
+                let recipe = new Recipe(response.data.hits[0].recipe);
+
+                res.render('show',{recipe:recipe});
+            }
+        })
+        .catch((err) => {
+            res.sendStatus(500);
+        });
 }
