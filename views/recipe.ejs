@@ -14,19 +14,9 @@
     <main>
         <div><% recipeList.forEach(recipe => { %>
             <div class="recipe">
+                <a href='/recipe/<%=recipe.name%>'>
                 <div class="title"><%=recipe.name %></div>
                 <img class="imgrecipe" src="<%= recipe.img %>" />
-                <div class="title">
-                    Ingredients:
-                </div>
-                <div>
-                    <ul>
-                        <% recipe.ingredients.forEach(ing => { %>
-                        <li><%= ing %></li>
-                        <% }) %>
-                    </ul>
-                </div>
-                <div> <a href="<%= recipe.url %>">Read More</a></div>
                     <p class='line'></p>
             </div>
             <% }) %>
