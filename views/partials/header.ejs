@@ -1,26 +1,13 @@
-<nav
-  class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar"
->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
   <div class="container">
     <!-- Brand -->
-    <a
-      class="navbar-brand waves-effect"
-      href="https://mdbootstrap.com/docs/jquery/"
-      target="_blank"
-    >
+    <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
       <strong class="blue-text">Cook With Alina</strong>
     </a>
 
     <!-- Collapse -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -29,46 +16,35 @@
       <!-- Left -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link waves-effect" href="/"
-            >Home
+          <a class="nav-link waves-effect" href="/">Home
             <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a
-            class="nav-link waves-effect"
-            href="/category"
-            >Categories</a
-          >
+          <a class="nav-link waves-effect" href="/category">Categories</a>
         </li>
       </ul>
 
       <!-- Right -->
       <ul class="navbar-nav nav-flex-icons">
-          <li class="nav-item">
-          <a
-            href="#"
-            class="nav-link waves-effect"
-          >
-          Some User Name
+        <li class="nav-item">
+          <% if (user){ %>
+          <a href="#" class="nav-link waves-effect">
+            <%=user.name %>
           </a>
         </li>
         <li class="nav-item">
-          <a
-            href="/logout"
-            class="nav-link waves-effect"
-          >
-          <i class="fab fa-sign-out-alt mr-2"></i>Logout
+          <a href="/logout" class="nav-link waves-effect">
+            <i class="fab fa-sign-out-alt mr-2"></i>Logout
           </a>
         </li>
+        <%} else{%>
         <li class="nav-item">
-          <a
-            href="/auth/google"
-            class="nav-link border border-light rounded waves-effect"
-          >
+          <a href="/auth/google" class="nav-link border border-light rounded waves-effect">
             <i class="fab fa-google mr-2"></i>Login With Google
           </a>
         </li>
+        <%}%>
       </ul>
     </div>
   </div>

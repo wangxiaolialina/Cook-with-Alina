@@ -27,17 +27,22 @@
                     </ul>
                 </div>
                 <div> <a href="<%= recipe.url %>">Read More</a></div>
-                <form action='/comment/save' method='post' >
+                <form action='/comment' method='post'>
                     <label for="comment">Comment:</label>
                     <input name="user_comment" type='text'></input>
                     <input name="recipe_uri" type="hidden" value=<%= recipe.uri %> />
+                    <input name="search_name" type="hidden" value="<%= recipe.name %>" />
                     <input type="submit" value="Submit">
                 </form>
                 <div>Comments</div>
-                <% if(!comments){
-                    <div>
-                }
-                    <p class='line'></p>
+                <% if(commentText.length == 0){ %>
+                <div>There is no comments</div>
+                <% } else {%>
+                <% commentText.forEach(comment=> { %>
+                <div> <%= comment.text %> <a href='/comment/edit'><button>Edit</button></a></div>
+                <%  }) %>
+                <% } %>
+                <p class='line'></p>
             </div>
         </div>
     </main>

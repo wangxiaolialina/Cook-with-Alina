@@ -2,6 +2,7 @@ const axios = require('axios');
 const recipeModel = require('../models/recipe');
 const Recipe = recipeModel.Recipe;
 const base_url = "https://api.edamam.com/search";
+const Comment = require('../models/comments')
 require('dotenv').config();
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
 const app_id = process.env.APP_ID;
 const app_key = process.env.APP_KEY;
 
-async function searchRecipe(req, res ) {
+async function searchRecipe(req, res) {
     try {
         const response = await axios.get(base_url, {
             params: {
@@ -29,9 +30,11 @@ async function searchRecipe(req, res ) {
                 return new Recipe(result.recipe)
             })
             // res.send(recipeList);
-            res.render('recipe',{recipeList});
+            res.render('recipe', {
+                recipeList
+            });
         }
-    }  catch (error) {
+    } catch (error) {
         res.sendStatus(500)
     }
 }
@@ -39,17 +42,30 @@ async function searchRecipe(req, res ) {
 function getRecipeByName(req, res) {
     const recipe_name = req.params.name;
     axios.get(base_url, {
-        params: {
-            app_id: app_id,
-            app_key: app_key,
-            q: recipe_name,
-        }
-    })
+            params: {
+                app_id: app_id,
+                app_key: app_key,
+                q: recipe_name,
+            }
+        })
         .then((response) => {
-           if (response && response.data.hits.length > 0) {
+            if (response && response.data.hits.length > 0) {
                 let recipe = new Recipe(response.data.hits[0].recipe);
+                console.log('this is my recipe:', recipe)
+                Comment.find({
+                    recipe_uri: recipe.uri
+                }, function (err, comments) {
+                    if (err) {
+                        res.send(err.message);
+                    }
+                    console.log("comment is here:", comments);
+                    res.render('show', {
+                        recipe: recipe,
+                        commentText: comments
+                    });
 
-                res.render('show',{recipe:recipe});
+                })
+
             }
         })
         .catch((err) => {

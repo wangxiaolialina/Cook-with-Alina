@@ -17,7 +17,8 @@ async function index(req, res, next) {
 
         const categories = await category.find({});
         res.render('category', {
-            categories
+            categories,
+            user: req.user
         });
     } catch (err) {
         next(err);
@@ -46,7 +47,8 @@ function searchCategory(req, res) {
         })
         // res.send(recipeList);
         res.render('recipe', {
-            recipeList
+            recipeList,
+            user: req.user
         });
     }).catch(err => {
         res.send(err.message);
