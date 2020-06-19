@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(session({
-  secret: 'Alina!',
+  secret: process.env.SECRET,
   resave: true,
   saveUninitialized: true
 }));
