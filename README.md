@@ -4,10 +4,30 @@ Learn to cook with awesome online recipes, search over thousands of delicious fo
 
 
 ## Screenshot
-![Game Screen](./assets/highlow.png)
+![Web Screen](./assets/homepage.png)
+![Web Screen](./assets/category.png)
+![Web Screen](./assets/detail.png)
+![Web Screen](./assets/edit.png)
+
 
 ----
-## Technologies Used: Node.Js Express MongoDB Heroku Bootstrap Material Icon
+## Technologies Used: 
+1.Node.Js
+
+2.Express 
+
+3.MongoDB 
+
+4.RESTFUL API
+
+5.Crud
+
+5.Oauth
+
+6.Bootstrap
+
+7.material Icon
+
 
 ## Getting Started
 
