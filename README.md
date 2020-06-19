@@ -34,7 +34,7 @@ Learn to cook with awesome online recipes, search over thousands of delicious fo
 
 ## Getting Started
 
-[Here is my game](https://cook-with-alina.herokuapp.com)
+[Here is my App](https://cook-with-alina.herokuapp.com)
 
 ## Next Steps: 
 
