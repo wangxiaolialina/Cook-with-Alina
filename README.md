@@ -5,8 +5,11 @@ Learn to cook with awesome online recipes, search over thousands of delicious fo
 
 ## Screenshot
 ![Web Screen](./assets/homepage.png)
+
 ![Web Screen](./assets/category.png)
+
 ![Web Screen](./assets/detail.png)
+
 ![Web Screen](./assets/edit.png)
 
 
@@ -31,7 +34,7 @@ Learn to cook with awesome online recipes, search over thousands of delicious fo
 
 ## Getting Started
 
-[Here is my game](https://wangxiaolialina.github.io/sei-project-1/)
+[Here is my game](https://cook-with-alina.herokuapp.com)
 
 ## Next Steps: 
 
