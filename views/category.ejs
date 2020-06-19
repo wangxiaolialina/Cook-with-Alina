@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <% include partials/head %>
-</head>
-<body class="container">
+  </head>
+  <body class="container">
+    <header>
+      <% include partials/header %>
+    </header>
 
-<header>
-    <% include partials/header %>
-</header>
-
-<main class="mt-5 pt-5">
-  <div class="container">
-    <div class="category_grid">
-        <% categories.forEach(cat => { %>
-          <div class="category">
-            <a href="./category/<%= cat.name %>">
-              <img src="./images/<%= cat.img %>" >
-              <p><%= cat.name %></p>
-            </a>
-          </div>
-        <%}) %>
+    <main class="mt-5 pt-5">
+      <div class="container">
+        <div class="category_grid">
+          <% categories.forEach(cat => { %>
+            <div class="card">
+              <div class="view overlay">
+                <div class="">
+                  <a href="./category/<%= cat.name %>">
+                    <img src="./images/<%= cat.img %>" />
+                  </a>
+                </div>
+              </div>
+      
+              <!--Card content-->
+              <div class="card-body">
+                <!--Title-->
+                <h4 class="card-title"><%= cat.name %></h4>
+                <!--Text-->
+                <p class="card-text">
+                  <strong><a href="./category/<%= cat.name %>">Read More </a></strong>
+                </p>
+              </div>
+            </div>
+          <%}) %>
+        </div>
       </div>
-    </div>
-</main>
+      
+    </main>
 
-<footer>
-    <% include partials/footer %>
-</footer>
-
-</body>
+    <footer>
+      <% include partials/footer %>
+    </footer>
+  </body>
 </html>

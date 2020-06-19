@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <% include partials/head %>
-</head>
+  </head>
 
-<body class="container">
-
+  <body class="container">
     <header>
-        <% include partials/header %>
+      <% include partials/header %>
     </header>
 
     <main>
-        <div>
-            <div class="recipe">
-                <div class="title"><%=recipe.name %></div>
-                <img class="imgrecipe" src="<%= recipe.img %>" />
-                <div class="title">
-                    Ingredients:
-                </div>
-                <div>
-                    <ul>
-                        <% recipe.ingredients.forEach(ing => { %>
-                        <li><%= ing %></li>
-                        <% }) %>
-                    </ul>
-                </div>
-                <div> <a href="<%= recipe.url %>">Read More</a></div>
-                <form action='/comment' method='post'>
-                    <label for="comment">Comment:</label>
-                    <input name="user_comment" type='text'></input>
-                    <input name="recipe_uri" type="hidden" value=<%= recipe.uri %> />
-                    <input name="search_name" type="hidden" value="<%= recipe.name %>" />
-                    <input type="submit" value="Submit">
-                </form>
-                <div>Comments</div>
-                <% if(commentText.length == 0){ %>
-                <div>There is no comments</div>
-                <% } else {%>
-                <% commentText.forEach(comment=> { %>
-                <div> <%= comment.text %> <a href='/comment/edit'><button>Edit</button></a></div>
-                <%  }) %>
-                <% } %>
-                <p class='line'></p>
+      <div>
+        <div class="recipe">
+          <div class="title"><%=recipe.name %></div>
+          <div
+            class="row mb-4 wow fadeIn"
+            style="visibility: visible; animation-name: fadeIn;"
+          >
+            <div class="col-sm-6">
+              <img
+                class="imgrecipe"
+                src="<%= recipe.img %>"
+                class="img-fluid"
+                alt=""
+              />
             </div>
+            <div class="col-sm-6">
+              <div class="title">
+                Ingredients:
+              </div>
+              <div>
+                <ul>
+                  <% recipe.ingredients.forEach(ing => { %>
+                  <li><%= ing %></li>
+                  <% }) %>
+                </ul>
+              </div>
+              <div><a href="<%= recipe.url %>">Read More</a></div>
+            </div>
+          </div>
+          <% include comment %>
+          <p class="line"></p>
         </div>
+      </div>
     </main>
     <footer>
-        <% include partials/footer %>
+      <% include partials/footer %>
     </footer>
-
-</body>
-
+  </body>
 </html>

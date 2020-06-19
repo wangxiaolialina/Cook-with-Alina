@@ -12,27 +12,37 @@
 
     <main class="mt-5 pt-5">
       <div class="container">
-        <div class="active-cyan-3 active-cyan-4 mb-4">
-          <form action="/recipe" method="GET">
-            <input
-              class="form-control"
-              type="text"
-              name="recipeName"
-              placeholder="Search your recipe"
-              aria-label="Search"
-            />
-            <span class="input-group-btn">
-              <button class="btn btn-success" type="submit">Go!</button>
-            </span>
-          </form>
-        </div>
-        OR
-        <a href="/category">
-          <button type="button" class="btn btn-info">
-            Explore By Category
-          </button>
-        </a>
-      </div>
+        <section class="card wow fadeIn animated" style="background-image: url('/images/landing-image.jpg'); visibility: visible; animation-name: fadeIn;">
+
+          <!-- Content -->
+          <div class="card-body text-white text-center py-5 px-5 my-5">
+  
+            <div class="active-cyan-3 active-cyan-4 mb-4">
+              <form action="/recipe" method="GET">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="recipeName"
+                  placeholder="Search your recipe"
+                  aria-label="Search"
+                />
+                <span class="input-group-btn">
+                  <button class="btn btn-success" type="submit">Go!</button>
+                </span>
+              </form>
+            </div>
+            OR
+            <a href="/category">
+              <button type="button" class="btn btn-info">
+                Explore By Category
+              </button>
+            </a>
+          </div>
+  
+          </div>
+          <!-- Content -->
+        </section>
+        
     </main>
 
     <footer>

@@ -3,9 +3,24 @@ const User = require('../models/users');
 const recipe = require('../models/recipe');
 
 module.exports = {
+    showEdit,
     createComment,
     editComment,
     deleteComment,
+}
+
+function showEdit(req, res) {
+    Comment.findById(req.params.id, (err, comment) => {
+        if(err){
+            res.send(err.message);
+        }
+
+        res.render("edit", {
+            comment,
+            user: req.user,
+            recipe: {name: req.query.recipe_name}
+        })
+    })
 }
 
 function createComment(req, res, next) {
@@ -18,12 +33,13 @@ function createComment(req, res, next) {
         const comment = new Comment({
             text: req.body.user_comment,
             recipe_uri: req.body.recipe_uri,
-            user_id: req.user._id
+            user_id: req.user._id,
+            user_name: req.user.name,
         });
         console.log('here is the reqbody:', req.body)
 
         comment.save().then(() => {
-                res.redirect(`recipe/${req.body.search_name}`);
+                res.redirect(`/recipe/${req.body.search_name}`);
             })
             .catch(err => {
                 next(err)
@@ -37,7 +53,7 @@ function editComment(req, res) {
         user_id: req.user._id
     }
     const update = {
-        text: req.body.text
+        text: req.body.user_comment
     }
     Comment.findOneAndUpdate({},update)
     Comment.findOneAndUpdate(filter, update, (err, doc) => {
@@ -45,20 +61,20 @@ function editComment(req, res) {
             res.sendStatus(400);
         }
 
-        res.sendStatus(202);
+        res.redirect(`/recipe/${req.body.search_name}`);
     });
 }
 
 function deleteComment(req, res) {
     const filter = {
         _id: req.params.id,
-        user_id: req.user_id
+        user_id: req.user._id
     }
     Comment.findOneAndDelete(filter, (err, doc) => {
         if (err) {
             res.sendStatus(400);
         }
 
-        res.sendStatus(200);
+        res.redirect(`/recipe/${req.body.search_name}`);
     });
 }

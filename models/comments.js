@@ -5,7 +5,8 @@ const CommentSchema = new mongoose.Schema(
   {
     text: { type: String, required: true },
     recipe_uri: {type: String, required: true},
-    user_id: {type: Schema.Types.ObjectId, ref: 'Users'}
+    user_id: {type: Schema.Types.ObjectId, ref: 'Users'},
+    user_name: {type: String},
   }
 );
 

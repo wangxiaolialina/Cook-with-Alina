@@ -31,7 +31,8 @@ async function searchRecipe(req, res) {
             })
             // res.send(recipeList);
             res.render('recipe', {
-                recipeList
+                recipeList,
+                user: req.user,
             });
         }
     } catch (error) {
@@ -59,9 +60,11 @@ function getRecipeByName(req, res) {
                         res.send(err.message);
                     }
                     console.log("comment is here:", comments);
+                    console.log("current user", req.user)
                     res.render('show', {
                         recipe: recipe,
-                        commentText: comments
+                        commentText: comments,
+                        user: req.user,
                     });
 
                 })
